@@ -43,7 +43,15 @@ namespace math_lib {
         }
         int end = 1;
         for (int i = 0; i < num2; i++) {
-            if (end > INT_MAX_VAL / num1) return false;
+            if (num1 > 0) {
+                if ((end > 0 && end > INT_MAX_VAL / num1) ||
+                    (end < 0 && end < INT_MIN_VAL / num1))
+                    return false;
+            } else { 
+                if ((end > 0 && end > INT_MIN_VAL / num1) ||
+                    (end < 0 && end < INT_MAX_VAL / num1))
+                    return false;
+            }
             end *= num1;
         }
         result = (double)end;
