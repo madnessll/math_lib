@@ -41,6 +41,10 @@ namespace math_lib {
             result = 1; 
             return true; 
         }
+	if (num1 == 0) {
+            result = 0;
+            return true;
+        }
         int end = 1;
         for (int i = 0; i < num2; i++) {
             if (num1 > 0) {
